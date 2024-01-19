@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="icon" href="[(asset (/images/logo-only.png"))]" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/logo.png')}}" type="image/x-icon">
 
     <title>Project PWL 2 Richo Setiawan 422022001</title>
 </head>

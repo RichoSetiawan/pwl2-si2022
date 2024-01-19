@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="/assets/images/logo.png" alt="">
+                <img src="{{asset('images/logo.png')}}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,14 +21,38 @@
                         <a class="nav-link" href="#">Business</a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                    <a href="#" class="btn btn-master btn-secondary me-3">
+                @auth 
+                <div class="d-flex user-logged nav-item dropdown no-arrow">
+                    <a href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuLink">
+                        Halo, {{Auth::user()->name}}!
+                        @if(Auth::user()->avatar)
+                            <image src="{{ Auth::user()->avatar }}" class="user-photo" alt="user's avatar">
+                        @else
+                            <image src="https://ui-avatars.com/api?name=Admin" class="user-photo" alt="admin's avatar">
+                        @endif
+                    </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenulink" style="right:0; left:auto">
+                            <li>
+                                <a href="#" class="dropdown-item">My Dashboard</a>
+                            </li>
+                            <li>
+                            <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').sublit()">Sign Out</a> 
+                            <form method="post" action="{{route('logout')}}" style="display:none" id="logout-form"> 
+                                <input type="hidden" name="token" value="{{csrf_token()}}">
+                            </form>
+                            </li>
+                        </ul>
+                    </a>
+                </div>
+                @else
+                    <div class="d-flex">
+                    <a href="{{url('/login')}}" class="btn btn-master btn-secondary me-3">
                         Sign In
                     </a>
                     <a href="#" class="btn btn-master btn-primary">
                         Sign Up
                     </a>
                 </div>
-            </div>
+            @endauth
         </div>
     </nav>

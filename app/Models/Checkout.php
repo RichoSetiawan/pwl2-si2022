@@ -9,13 +9,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Checkout extends Model
 {
     use HasFactory, SoftDeletes;
-    
+
     protected $fillable = [
         'user_id',
         'camp_id',
-        'card_id',
-        'expired',
-        'CVC',
-        'is_paid',
-        ];
+    ];
+
+    public function camp(){
+        return $this->belongsTo(Camp::class, 'camp_id');
+        }
+    
+    public function user(){
+       return $this->belongsTo(User::class, 'user_id');
+        }
 }
