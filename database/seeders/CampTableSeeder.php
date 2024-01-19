@@ -16,27 +16,35 @@ class CampTableSeeder extends Seeder
     {
         $camps = [
             [
-            'title' => 'Gila Belajar',
-            'slug' => 'gila-belajar',
-            'price' => 200,
-            'created_at' => date('Y-m-d H:i:s', time()),
-            'updated_at' => date('Y-m-d H:i:s', time()),
-            ],
-            [
-            'title' => 'Baru Mulai',
-            'slug' => 'baru-mulai',
-            'price' => 140,
-            'created_at'=> date('Y-m-d H:i:s', time()), 
-            'updated at' => date('Y-m-d H:i:s', time()),
-            ],
-        ];
+                'title' => 'Transtudio Bandung',
+               'slug' => 'Indahnya bermain bersama keluarga',
+               'price' => 35,
+               'created_at' => date('Y-m-d H:i:s', time()),
+               'updated_at' => date('Y-m-d H:i:s', time()),
+           ],
+           [
+               'title' => 'Jungle Land',
+               'slug' => 'The best fun in the World',
+               'price' => 100,
+               'created_at' => date('Y-m-d H:i:s', time()),
+               'updated_at' => date('Y-m-d H:i:s', time()),
+           ],
+           [
+               'title' => 'Seaworld',
+               'slug' => 'seaworld',
+               'price' => 95,
+               'created_at' => date('Y-m-d H:i:s', time()),
+               'updated_at' => date('Y-m-d H:i:s', time()),
+           ],
+           [
+                'title' => 'Dufan',
+               'slug' => 'Taman-Impian-Jaya-Ancol',
+               'price' => 10,
+               'created_at' => date('Y-m-d H:i:s', time()),
+               'updated_at' => date('Y-m-d H:i:s', time()),
+           ]
+       ];
 
-            // 1st method: // Insert one by one through looping 
-            // foreach($camps as $key => $camp){}
-            // Camp::create($camp);
-            // }
-
-            // 2nd method: // insert rows/bulk 
-            Camp::insert($camps);
-    }
+       Camp::insert($camps);
+}
 }
